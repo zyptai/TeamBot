@@ -4,6 +4,8 @@ const { AzureKeyCredential } = require("@azure/core-auth");
 const config = require("../config");
 const LoggingUtil = require("./loggingUtil");
 const appInsightsConfig = require('./utils/appInsightsConfig');
+const { DefaultAzureCredential } = require("@azure/identity");
+const { SecretClient } = require("@azure/keyvault-secrets");
 
 // Initialize the OpenAI client
 const client = new OpenAIClient(config.azureOpenAIEndpoint, new AzureKeyCredential(config.azureOpenAIKey));
@@ -260,25 +262,25 @@ async function makeApiRequest({ method, url, headers = {}, data }) {
   }
 }
 
-const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
-
 async function getJiraApiToken() {
-  // Initialize Key Vault client using Managed Identity or other credentials
-  const credential = new DefaultAzureCredential();
+  // Initialize Key Vault client using the bot's managed identity
+  const credential = new DefaultAzureCredential({
+    managedIdentityClientId: config.botId  // Using the bot's ID for managed identity
+  });
+  
   const client = new SecretClient(config.vaultUrl, credential);
 
   try {
     // Fetch the Jira API token from Azure Key Vault
     console.log("Attempting to retrieve secret 'JiraApiToken' from Key Vault...");
-    const secret = await client.getSecret("JiraApiToken");
-
-    // Check if the secret has been successfully retrieved
+    console.log("Using vault URL:", config.vaultUrl);
+    console.log("Using bot ID:", config.botId);
+    
+    const secret = await client.getSecret("SECRET-JIRA-API-TOKEN");
     console.log("Secret retrieval successful:", secret ? "[REDACTED]" : "No secret found");
 
-    return secret.value;  // Return the Jira API token
+    return secret.value;
   } catch (error) {
-    // Handle any errors in retrieving the secret
     console.error("Error retrieving Jira API token from Key Vault:", error.message);
     throw new Error("Unable to retrieve Jira API token from Key Vault.");
   }
