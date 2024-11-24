@@ -1,25 +1,26 @@
 {
-    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
-    "manifestVersion": "1.17",
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.16",
     "version": "1.0.0",
     "id": "${{TEAMS_APP_ID}}",
+    "packageName": "com.microsoft.teams.extension",
     "developer": {
-        "name": "Teams App, Inc.",
-        "websiteUrl": "https://www.example.com",
-        "privacyUrl": "https://www.example.com/privacy",
-        "termsOfUseUrl": "https://www.example.com/termofuse"
+        "name": "ZyptAI Technologies, Inc",
+        "websiteUrl": "https://www.zyptai.com",
+        "privacyUrl": "https://www.zyptai.com/privacy",
+        "termsOfUseUrl": "https://www.zyptai.com/termofuse"
     },
     "icons": {
-        "color": "color.png",
-        "outline": "outline.png"
+        "color": "zyptai192.png",
+        "outline": "zyptai32transparent.png"
     },
     "name": {
-        "short": "TeamsBot${{APP_NAME_SUFFIX}}",
-        "full": "full name for TeamsBot"
+        "short": "ZyptAIBot${{APP_NAME_SUFFIX}}",
+        "full": "full name for ZyptAIBot"
     },
     "description": {
-        "short": "short description for TeamsBot",
-        "full": "full description for TeamsBot"
+        "short": "AI-driven tool to manage IT Knowledge",
+        "full": "ZyptAI Bot is an AI-powered assistant that helps you analyze your systems documentation, use AI to support your new or existing installations, integrate with other systems, and more—all directly from Microsoft Teams. It’s designed to save you time and streamline your workflow with interactive and easy-to-understand responses."
     },
     "accentColor": "#FFFFFF",
     "bots": [
@@ -28,7 +29,7 @@
             "scopes": [
                 "personal",
                 "team",
-                "groupChat"
+                "groupchat"
             ],
             "supportsFiles": false,
             "isNotificationOnly": false

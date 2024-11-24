@@ -11,7 +11,11 @@ const config = require("./config");
 
 const botFrameworkAuthentication = new ConfigurationBotFrameworkAuthentication(
   {},
-  new ConfigurationServiceClientCredentialFactory(config)
+  new ConfigurationServiceClientCredentialFactory({
+    MicrosoftAppId: config.botId,
+    MicrosoftAppPassword: process.env.BOT_PASSWORD,
+    MicrosoftAppType: "MultiTenant",
+  })
 );
 
 // Create adapter.

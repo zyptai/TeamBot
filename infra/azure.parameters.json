@@ -5,6 +5,12 @@
     "resourceBaseName": {
       "value": "bot${{RESOURCE_SUFFIX}}"
     },
+    "botAadAppClientId": {
+      "value": "${{BOT_ID}}"
+    },
+    "botAadAppClientSecret": {
+      "value": "${{SECRET_BOT_PASSWORD}}"
+    },
     "azureOpenAIKey": {
       "value": "${{SECRET_AZURE_OPENAI_API_KEY}}"
     },
@@ -27,7 +33,28 @@
       "value": "B1"
     },
     "botDisplayName": {
-      "value": "TeamsBot"
+      "value": "ZyptAIBot"
+    },
+    "jiraBaseUrl": {
+      "value": "${{JIRA_BASE_URL}}"
+    },
+    "jiraUsername": {
+      "value": "${{JIRA_USERNAME}}"
+    },
+    "jiraApiToken": {
+      "value": "${{SECRET_JIRA_API_TOKEN}}"
+    },
+    "appInsightsInstrumentationKey": {
+      "value": "${{APP_INSIGHTS_INSTRUMENTATION_KEY}}"
+    },
+    "appInsightsConnectionString": {
+      "value": "${{APP_INSIGHTS_CONNECTION_STRING}}"
+    },
+    "keyVaultName": {
+      "value": "${{KEY_VAULT_NAME}}"
+    },
+    "vaultUrl": {
+      "value": "${{VAULT_URL}}"
     }
   }
 }
