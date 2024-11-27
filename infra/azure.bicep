@@ -26,6 +26,29 @@ param webAppSKU string
 @maxLength(42)
 param botDisplayName string
 
+// Add new parameters
+@description('Jira Base URL')
+param jiraBaseUrl string
+
+@description('Jira Username')
+param jiraUsername string
+
+@description('Jira API Token')
+@secure()
+param jiraApiToken string
+
+@description('Application Insights Instrumentation Key')
+param appInsightsInstrumentationKey string
+
+@description('Application Insights Connection String')
+param appInsightsConnectionString string
+
+@description('Key Vault Name')
+param keyVaultName string
+
+@description('Key Vault URL')
+param vaultUrl string
+
 param serverfarmsName string = resourceBaseName
 param webAppName string = resourceBaseName
 param identityName string = resourceBaseName
@@ -105,6 +128,35 @@ resource webApp 'Microsoft.Web/sites@2021-02-01' = {
           name: 'AZURE_SEARCH_ENDPOINT'
           value: azureSearchEndpoint
         }
+        // Add new app settings
+        {
+          name: 'JIRA_BASE_URL'
+          value: jiraBaseUrl
+        }
+        {
+          name: 'JIRA_USERNAME'
+          value: jiraUsername
+        }
+        {
+          name: 'SECRET_JIRA_API_TOKEN'
+          value: jiraApiToken
+        }
+        {
+          name: 'APP_INSIGHTS_INSTRUMENTATION_KEY'
+          value: appInsightsInstrumentationKey
+        }
+        {
+          name: 'APP_INSIGHTS_CONNECTION_STRING'
+          value: appInsightsConnectionString
+        }
+        {
+          name: 'KEY_VAULT_NAME'
+          value: keyVaultName
+        }
+        {
+          name: 'VAULT_URL'
+          value: vaultUrl
+        }                
       ]
       ftpsState: 'FtpsOnly'
     }
