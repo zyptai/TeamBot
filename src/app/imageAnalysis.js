@@ -5,17 +5,14 @@
 
 const axios = require("axios");
 const { OpenAIClient } = require("@azure/openai");
-const { AzureKeyCredential } = require("@azure/core-auth");
 const { MicrosoftAppCredentials } = require("botframework-connector");
-const config = require("../config");
+const { AzureKeyCredential } = require("@azure/core-auth");
+const config = require("../config"); // Using config for all environment variables
 const LoggingUtil = require("./loggingUtil");
 const appInsightsConfig = require('./utils/appInsightsConfig');
 
 // Initialize the OpenAI client
-const client = new OpenAIClient(
-  config.azureOpenAIEndpoint, 
-  new AzureKeyCredential(config.azureOpenAIKey)
-);
+const client = new OpenAIClient(config.azureOpenAIEndpoint, new AzureKeyCredential(config.azureOpenAIKey));
 
 /**
  * Creates a new logger instance

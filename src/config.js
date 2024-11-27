@@ -13,11 +13,7 @@ const config = {
   appInsightsInstrumentationKey: process.env.APP_INSIGHTS_INSTRUMENTATION_KEY,
   appInsightsConnectionString: process.env.APP_INSIGHTS_CONNECTION_STRING,
   keyVaultName: process.env.KEY_VAULT_NAME,
-  vaultUrl: process.env.VAULT_URL,  // Make sure this matches your env file
+  vaultUrl: process.env.VAULT_URL,
 };
-
-// Add some logging to debug
-console.log('Vault URL from env:', process.env.VAULT_URL);
-console.log('Vault URL in config:', config.vaultUrl);
 
 module.exports = config;
