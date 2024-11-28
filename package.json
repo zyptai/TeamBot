@@ -34,9 +34,13 @@
         "@azure/openai": "^1.0.0-beta.13",
         "@azure/search-documents": "^12.1.0",
         "@microsoft/teams-ai": "^1.6.1",
+        "@opentelemetry/api": "^1.9.0",
+        "@opentelemetry/sdk-node": "^0.55.0",
         "applicationinsights": "^3.4.0",
         "botbuilder": "^4.20.0",
+        "botbuilder-dialogs": "^4.20.0",
         "file-type": "^16.5.4",
+        "fs": "^0.0.1-security",
         "restify": "^10.0.0"
     },
     "devDependencies": {
