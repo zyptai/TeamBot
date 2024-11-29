@@ -271,7 +271,7 @@ async function getJiraApiToken() {
   try {
     // Fetch the Jira API token from Azure Key Vault
     console.log("Attempting to retrieve secret 'JiraApiToken' from Key Vault...");
-    const secret = await client.getSecret("JiraApiToken");
+    const secret = await client.getSecret("SECRET-JIRA-API-TOKEN");
 
     // Check if the secret has been successfully retrieved
     console.log("Secret retrieval successful:", secret ? "[REDACTED]" : "No secret found");
